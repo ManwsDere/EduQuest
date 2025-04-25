@@ -11,14 +11,10 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5001;
 
-
 // Middleware
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-//manasdere2004
-//upP2DLeTJeeUS9GL
 
 // Database connection
 mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://manasdere2004:upP2DLeTJeeUS9GL@eduquest-cluster.48gxqjy.mongodb.net/?retryWrites=true&w=majority&appName=EduQuest-Cluster')
@@ -27,8 +23,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://manasdere2004:upP2DLe
 
 // Routes
 app.use('/api/auth', authRoute);
-app.use('/api/route', schemaRoutes);
-
+app.use('/api', schemaRoutes);  // Changed from '/api/route' to '/api' for cleaner URLs
 
 // Start server
 app.listen(PORT, () => {

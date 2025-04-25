@@ -13,6 +13,19 @@ const flashcardSchema = new mongoose.Schema({
   back: { type: String, required: true },
 }, { _id: false });
 
+// ====== Note Schema ======
+const noteSchema = new mongoose.Schema({
+  title: { type: String, required: true },
+  content: { type: String, required: true },
+}, { _id: false });
+
+// ====== Video Schema ======
+const videoSchema = new mongoose.Schema({
+  title: { type: String, required: true },
+  url: { type: String, required: true },
+  description: { type: String },
+}, { _id: false });
+
 // ====== Element Schema ======
 const elementSchema = new mongoose.Schema({
   type: {
@@ -23,6 +36,10 @@ const elementSchema = new mongoose.Schema({
   content: {
     type: mongoose.Schema.Types.Mixed, // Content format depends on the 'type'
     required: true,
+    // For 'quiz' and 'test', content should follow qaSchema
+    // For 'flashcard', content should follow flashcardSchema
+    // For 'note', content should follow noteSchema
+    // For 'video', content should follow videoSchema
   },
 }, { _id: false });
 
