@@ -57,7 +57,7 @@ const PORT = 5001;
 
 // Middleware
 app.use(cors({
-  origin: 'http://52.206.207.179:80',  // frontend exposed on port 80 in Docker
+  origin: 'http://44.212.65.113:80',  // frontend exposed on port 80 in Docker
   credentials: true
 }));
 
